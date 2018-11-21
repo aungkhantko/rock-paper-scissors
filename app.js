@@ -3,6 +3,7 @@ let computerScore = 0;
 const playerScoreSpan = document.getElementById("player-score");
 const computerScoreSpan = document.getElementById("computer-score");
 const result = document.getElementById("result");
+const play = document.getElementById("play");
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
@@ -26,6 +27,7 @@ function main() {
 function game(playerMove) {
 	let cMove = computerMove();
 	let val = playerMove + cMove;
+	move(playerMove, cMove);
 	switch(val) {
 		case "rockscissors":
 		case "paperrock":
@@ -61,6 +63,9 @@ function draw() {
 	result.innerHTML = "Draw";
 }
 
-
+function move(pMove, cMove) {
+	let res = "Player played " + pMove + ". Computer played " + cMove +".";
+	play.innerHTML = res;
+}
 
 main();
